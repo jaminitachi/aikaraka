@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import Slider from "react-slick";
-import { CSSTransition } from "react-transition-group";
 
 import "./App.css";
 
@@ -147,6 +146,28 @@ const projects = [
   },
 ];
 
+const SampleNextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} slick-next`}
+      style={{ ...style, right: "-20px" }}
+      onClick={onClick}
+    />
+  );
+};
+
+const SamplePrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} slick-prev `}
+      style={{ ...style, left: "-20px" }}
+      onClick={onClick}
+    />
+  );
+};
+
 const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
@@ -163,11 +184,24 @@ const App = () => {
 
   const settings = {
     dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
     arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 640, // sm size
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -205,7 +239,7 @@ const App = () => {
               인공지능이 바꿀 세상을
               <span className="block mt-4">직접 만들어갑니다. </span>
             </h1>
-            <p className="mt-10 text-lg leading-8 text-gray-600">
+            <p className="mt-20 text-lg leading-8 text-gray-600">
               AI가 인류의 혁신기술이 될 것이라 확신합니다.
               <span className="block mt-1">
                 저희 팀은 이러한 흐름에 함께 하여 다양한 AI 프로젝트를
@@ -229,64 +263,59 @@ const App = () => {
       </div>
 
       {/* Blog Section */}
-      <section className="mt-8 bg-gray-100 py-8">
+      <section className="mt-8 bg-gray-200 py-8 mx-auto xl:lg-w-80">
         <div className="container mx-auto px-6">
           <h2 className="text-2xl font-bold text-gray-800">포트폴리오</h2>
-          <Slider {...settings}>
-            {projects.map((project) => (
-              <div key={project.title} className="p-4">
-                <div
-                  className="bg-white p-4 rounded-lg shadow cursor-pointer"
-                  onClick={() => openModal(project)}
-                >
-                  <img
-                    className="h-48 w-full rounded-lg object-cover mb-4"
-                    src={project.imageUrl}
-                    alt={project.title}
-                  />
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {project.title}
-                  </h3>
-                  <p className="mt-2 text-gray-600">{project.description}</p>
-                </div>
-              </div>
-            ))}
-          </Slider>
-          <CSSTransition
-            in={modalIsOpen}
-            timeout={300}
-            classNames="modal"
-            unmountOnExit
-          >
-            <Modal
-              isOpen={modalIsOpen}
-              onRequestClose={closeModal}
-              contentLabel="Project Details"
-              className="fixed inset-0 flex items-center justify-center p-4 bg-gray-500 bg-opacity-75"
-            >
-              {selectedProject && (
-                <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-                  <h2 className="text-2xl font-bold mb-4">
-                    {selectedProject.title}
-                  </h2>
-                  <img
-                    className="h-96 w-full object-cover mb-4"
-                    src={selectedProject.imageUrl}
-                    alt={selectedProject.title}
-                  />
-                  <p className="text-gray-700">
-                    {selectedProject.more_description}
-                  </p>
-                  <button
-                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-                    onClick={closeModal}
+          <div className="relative">
+            <Slider {...settings}>
+              {projects.map((project) => (
+                <div key={project.title} className="p-4">
+                  <div
+                    className="bg-white p-4 rounded-lg shadow cursor-pointer"
+                    onClick={() => openModal(project)}
                   >
-                    Close
-                  </button>
+                    <img
+                      className="h-48 w-full rounded-lg object-cover mb-4"
+                      src={project.imageUrl}
+                      alt={project.title}
+                    />
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 text-gray-600">{project.description}</p>
+                  </div>
                 </div>
-              )}
-            </Modal>
-          </CSSTransition>
+              ))}
+            </Slider>
+          </div>
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Project Details"
+            className="fixed inset-0 flex items-center justify-center p-4 bg-gray-500 bg-opacity-75"
+          >
+            {selectedProject && (
+              <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg max-h-full overflow-y-auto mx-auto sm:max-h-3/4">
+                <h2 className="text-2xl font-bold mb-4">
+                  {selectedProject.title}
+                </h2>
+                <img
+                  className="h-96 w-full object-cover mb-4"
+                  src={selectedProject.imageUrl}
+                  alt={selectedProject.title}
+                />
+                <p className="text-gray-700">
+                  {selectedProject.more_description}
+                </p>
+                <button
+                  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+                  onClick={closeModal}
+                >
+                  Close
+                </button>
+              </div>
+            )}
+          </Modal>
         </div>
       </section>
 
@@ -309,7 +338,7 @@ const App = () => {
                 배움에 목말라 있는 개발자.
               </p>
               <p className="mt-2 text-gray-600">AI engineer, Frontend</p>
-              <p className="mt-2 text-gray-600">limdehan@gmail.com</p>
+              <p className="mt-2 text-gray-400">limdehan@gmail.com</p>
             </div>
 
             <div className="bg-gray-200 p-4 rounded-lg text-center">
@@ -326,7 +355,7 @@ const App = () => {
                 뿐 아니라 기술적 원리를 깊게 파고 들 수 있는 개발자.
               </p>
               <p className="mt-2 text-gray-600">AI engineer, PM</p>
-              <p className="mt-2 text-gray-600">w3lcome3003@yonsei.ac.kr</p>
+              <p className="mt-2 text-gray-400">w3lcome3003@yonsei.ac.kr</p>
             </div>
             <div className="bg-gray-200 p-4 rounded-lg text-center">
               <img
@@ -342,7 +371,7 @@ const App = () => {
                 지식을 갖추고 있음. 최대한 많은 경험을 하고 싶어하는 개발자.
               </p>
               <p className="mt-2 text-gray-600">AI engineer, PM</p>
-              <p className="mt-2 text-gray-600">jisue0224@yonsei.ac.kr</p>
+              <p className="mt-2 text-gray-400">jisue0224@yonsei.ac.kr</p>
             </div>
           </div>
         </div>

@@ -1,27 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-.modal-enter {
-  opacity: 0;
-  transform: scale(0.9);
-}
-
-.modal-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 300ms, transform 1000ms;
-}
-
-.modal-exit {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.modal-exit-active {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 100ms;
+@media (min-width: 1280px) {
+  .lg-w-80 {
+    width: 80%;
+  }
 }
