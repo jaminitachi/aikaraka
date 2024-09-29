@@ -6,7 +6,7 @@ import "./App.css";
 
 const projects = [
   {
-    title: "Denoising-대한",
+    title: "Denoising",
     imageUrl: "/ldct.png", // 실제 프로젝트 이미지 경로로 변경
     description:
       "ldct 이미지와 ndct 이미지를 이용하여 denoising을 수행하는 CV 프로젝트입니다",
@@ -25,7 +25,7 @@ const projects = [
     ),
   },
   {
-    title: "Kini project-대한",
+    title: "Kini project",
     imageUrl: "/kini.png", // 실제 프로젝트 이미지 경로로 변경
     description:
       "교내 창의플랫폼 프로젝트로 프론트 엔드 리더이자 팀 리더로 참여하였습니다",
@@ -40,25 +40,25 @@ const projects = [
           rel="noopener noreferrer"
           className="text-blue-500 underline"
         >
-          여기를 클릭
+          이곳
         </a>{" "}
         에 정리되어 있습니다.
       </span>
     ),
   },
   {
-    title: "Nlp 프로젝트-대한",
+    title: "Nlp 프로젝트",
     imageUrl: "/idrsoft.png", // 실제 프로젝트 이미지 경로로 변경
     description:
       "Mistral 7B 모델을 이용하여 글에서 키워드, 요약 추출 및 비슷한 문서 추천 기능을 구현한 nlp 프로젝트입니다.",
     more_description: (
       <span>
-        IDR soft 사의 외주를 받아 제작한 프로젝트로, version 2에서는{" "}
-        <b>KE-T5</b> 모델을 사용한 문서요약, <b>XLM BERT</b> 모델을 사용한
-        키워드 추출, <b>BERT</b>를 사용한 고유명사 추출, <b>KoBigBird</b>를
-        사용한 문서 임베딩 및 유사 문서 추천 시스템을 제작하였습니다. <br />{" "}
-        version 3에서는 <b>Mistral 7B</b> 모델을 사용한 압도적인 성능, 그리고
-        적은 리소스를 사용한 키워드 추출을 선보였습니다.
+        서울시청의 외주를 받아 제작한 프로젝트로, version 2에서는 <b>KE-T5</b>{" "}
+        모델을 사용한 문서요약, <b>XLM BERT</b> 모델을 사용한 키워드 추출,{" "}
+        <b>BERT</b>를 사용한 고유명사 추출, <b>KoBigBird</b>를 사용한 문서
+        임베딩 및 유사 문서 추천 시스템을 제작하였습니다. <br /> version 3에서는{" "}
+        <b>Mistral 7B</b> 모델을 사용한 압도적인 성능, 그리고 적은 리소스를
+        사용한 키워드 추출을 선보였습니다.
         <br />
         저는 version 2에서는 <b>도커 이미지 빌드 및 api 제작 담당</b>, 버전
         3에서는
@@ -68,48 +68,7 @@ const projects = [
     ),
   },
   {
-    title: "패런틀라이즈-승민",
-    imageUrl: "/패런틀라이즈.png",
-    description:
-      "생성형 AI의 감정 분석 모델을 활용한 맞춤형 육아 솔루션을 제공해주는 프로젝트입니다.",
-    more_description: (
-      <span>
-        생성형 AI 중에서도 <b>STT와 감정 분석 모델</b>을 활용하여 맞춤형 육아
-        솔루션을 제공해주는 서비스 입니다. 부모가 자녀와의 대화 내용을 음성으로
-        녹음하여 제공하면 AI가 논문에 근거한 전문적인 솔루션을 제공해주는
-        서비스입니다. AI의 할루시네이션을 해결하기 위해 <b>RAG 및 파인튜닝</b>을
-        사용하거나 <b>자체 모델</b>을 개발할 예정입니다.
-        <br />
-        현재 MVP 버전을 배포하여 <b>200명의 유저</b>에게 피드백을 받았으며 각종
-        교내 창업 경진 대회 및 대외 창업 경진 대회에서 우수한 실적을 내며{" "}
-        <b>800만원 가량의 상금</b>을 수상하였고, 현재 VC들과의 컨택도
-        진행중입니다. <br />
-        베타 버전 출시를 위해 개발하는 과정에 있으며 올해 안에 정식서비스 출시를
-        목표로 하고 있습니다.
-      </span>
-    ),
-  },
-  {
-    title: "음식 메뉴 추천 서비스-승민",
-    imageUrl: "/메뉴추천.png",
-    description:
-      "생성형 AI와 임베딩 벡터를 이용한 음식 메뉴 추천 서비스를 제공해주는 프로젝트입니다.",
-    more_description: (
-      <span>
-        음식 메뉴를 정하는 과정에 있어서 <b>"~가 먹고싶어"</b> 보다{" "}
-        <b>"~만 아니면 돼"</b>라고 말하는 사람들이 더 많다는 점에서 착안하여{" "}
-        <b>생성형 AI</b>와 <b>임베딩 벡터</b>를 활용하여 음식 메뉴 추천 서비스를
-        제공해주는 프로젝트를 진행하였습니다.
-        <br /> <b>Open AI의 api</b>를 이용하여 음식을 11가지 특징(한식, 중식,
-        기름진 정도, 칼로리, 맵기 등)으로 평가하여 <b>11개의 binary vector</b>로
-        표현한 다음
-        <b>cosine distance</b>가 가장 먼 쪽에 있는 음식들을 추천해주도록{" "}
-        <b>프롬프팅</b> 하는 작업을 담당했습니다.
-      </span>
-    ),
-  },
-  {
-    title: "AI 자동 뉴스 요약 티끌-지수",
+    title: "AI 자동 뉴스 요약 티끌",
     imageUrl: "/태글.png",
     description:
       "Open Ai의 GPT를 이용하여 초개인화된 뉴스 요약 서비스를 제공해주는 프로젝트입니다.",
@@ -126,7 +85,7 @@ const projects = [
     ),
   },
   {
-    title: "DataCamp 강의 추천 서비스-지수",
+    title: "DataCamp 강의 추천 서비스",
     imageUrl: "/데이타캠프.png",
     description:
       "Open Ai의 GPT를 이용하여 초개인화된 뉴스 요약 서비스를 제공해주는 프로젝트입니다.",
@@ -341,22 +300,6 @@ const App = () => {
               <p className="mt-2 text-gray-400">limdehan@gmail.com</p>
             </div>
 
-            <div className="bg-gray-200 p-4 rounded-lg text-center">
-              <img
-                className="h-48 w-full rounded-lg object-cover mx-auto mb-4"
-                src={"/유승민.jpg"}
-                alt="유승민"
-              />
-              <h3 className="text-lg font-semibold mt-2">유승민</h3>
-              <p className="mt-2 text-gray-600">
-                AI 창업동아리를 통해 gen AI를 사용한 프로덕트를 만들고, 다양한
-                공모전에 참여하여 수상함. 비즈니스 모델 구상과 고도화에 관심이
-                많아 다양한 프로젝트에서 PM을 맡아왔음. 이러한 비즈니스적인 측면
-                뿐 아니라 기술적 원리를 깊게 파고 들 수 있는 개발자.
-              </p>
-              <p className="mt-2 text-gray-600">AI engineer, PM</p>
-              <p className="mt-2 text-gray-400">w3lcome3003@yonsei.ac.kr</p>
-            </div>
             <div className="bg-gray-200 p-4 rounded-lg text-center">
               <img
                 className="h-48 w-full rounded-lg object-cover mx-auto mb-4"
